@@ -1,0 +1,107 @@
+#include<windows.h>
+#include<iostream>
+#include<math.h>
+#include <stdio.h>
+#include<GL/gl.h>
+#include <GL/glut.h>
+
+using namespace std;
+
+int X1, Y1, X2, Y2, X3, Y3, X4, Y4;
+
+void MidPointslINE(int x0, int y0, int xn, int yn)
+{
+    int dx = xn - x0;
+    int dy = yn - y0;
+    int x = x0, y = y0;
+
+    // Color: green if dy/dx >= 0, red otherwise
+    if ((float)dy / dx >= 0)
+        glColor3ub(0, 255, 0);
+    else
+        glColor3ub(255, 0, 0);
+
+    glBegin(GL_POINTS);
+
+    if (abs(dx) >= abs(dy))
+        {  // |m| <= 1 → drive along x
+        int d = 2*abs(dy) - abs(dx);
+        int dE = 2*abs(dy);
+        int dNE = 2*(abs(dy) - abs(dx));
+        int sx = (dx > 0) ? 1 : -1;
+        int sy = (dy > 0) ? 1 : -1;
+
+        while (x != xn)
+            {
+            glVertex2i(x, y);
+            if (d < 0)
+                d += dE;
+            else
+                { d += dNE; y += sy; }
+                x += sx;
+            }
+        }
+    else
+        {  // |m| > 1 → drive along y
+        int d = 2*abs(dx) - abs(dy);
+        int dE = 2*abs(dx);
+        int dNE = 2*(abs(dx) - abs(dy));
+        int sx = (dx > 0) ? 1 : -1;
+        int sy = (dy > 0) ? 1 : -1;
+
+        while (y != yn)
+            {
+            glVertex2i(x, y);
+            if
+                (d < 0) d += dE;
+            else
+                { d += dNE; x += sx; }
+                y += sy;
+            }
+        }
+
+    glVertex2i(xn, yn);  // plot endpoint
+    glEnd();
+    glFlush();
+}
+
+void MidPoints()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(0,0,0);
+    glBegin(GL_LINES);
+        glVertex2i(-100,0); glVertex2i(100,0);
+        glVertex2i(0,-100); glVertex2i(0,100);
+    glEnd();
+
+    MidPointslINE(X1, Y1, X2, Y2);
+    MidPointslINE(X3, Y3, X4, Y4);
+    glFlush();
+}
+
+void myInit(void)
+{
+    glClearColor(1.0, 1.0, 1.0, 0.0);
+    glPointSize(3.0);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(-100, 100, -100, 100);
+}
+
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(640, 480);
+    glutInitWindowPosition(150, 150);
+    glutCreateWindow("Midpoint Line Algorithm - CG Sec J");
+
+    cout << "Enter initial point for line 1 [X1 Y1]: "; cin >> X1 >> Y1;
+    cout << "Enter final point for line 1 [X2 Y2]: ";   cin >> X2 >> Y2;
+    cout << "Enter initial point for line 2 [X3 Y3]: "; cin >> X3 >> Y3;
+    cout << "Enter final point for line 2 [X4 Y4]: ";   cin >> X4 >> Y4;
+
+    myInit();
+    glutDisplayFunc(MidPoints);
+    glutMainLoop();
+}

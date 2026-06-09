@@ -1,0 +1,28 @@
+FINAL report format
+
+Title
+List of group members in a table with contribution
+
+1. Introduction (750 words)
+	-Explain the scenario
+	-Motivation
+	-Novelty of the project
+	-Background of the scenario
+	-Background of the platform used
+2. Related Works (1000 Words)
+	-List of 10 with works that has been done along with
+	an url accessing the projects. Provide APA citation 	for each project at the end of the report 
+	-Brief Description
+3. Implementation (1000 words)
+	-Explain the key features of the project
+	-Explain key technologies used
+	-List of key functions in your project
+4. Screenshot of the project
+	-List of 5 screenshot per scenery
+5. Code availability
+	-Provide a working GITHUB link in this section 
+6. Future Work
+	-List of future work of your project
+7. Conclusion
+	-Limitations of your project
+	-Conclude with a brief summary

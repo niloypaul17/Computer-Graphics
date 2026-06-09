@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1768692432 source:d:\aiub\8.fall 2025-26\computer graphics [j]\lab task\final term\flight dash\main.cpp
+	<windows.h>
+	<GL/glut.h>
+	<mysql.h>
+	<iostream>
+	<string>
+	<sstream>
+	<cmath>
+	<vector>
+	<mmsystem.h>
+
+1768688848 c:\program files (x86)\dev-cpp\mingw64\include\mysql.h
+	<sys/types.h>
+	<winsock.h>
+	"mysql_com.h"
+	"mysql_time.h"
+	"mysql_version.h"
+	"typelib.h"
+	"my_list.h"
+	"my_alloc.h"
+
+1768688848 c:\program files (x86)\dev-cpp\mingw64\include\mysql_com.h
+
+1768688848 c:\program files (x86)\dev-cpp\mingw64\include\mysql_time.h
+
+1768688848 c:\program files (x86)\dev-cpp\mingw64\include\mysql_version.h
+	<custom_conf.h>
+
+1768688848 c:\program files (x86)\dev-cpp\mingw64\include\typelib.h
+
+1768688848 c:\program files (x86)\dev-cpp\mingw64\include\my_list.h
+
+1768688848 c:\program files (x86)\dev-cpp\mingw64\include\my_alloc.h
+
